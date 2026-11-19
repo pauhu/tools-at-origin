@@ -6,6 +6,10 @@ here=Path(__file__).parent
 spec=importlib.util.spec_from_file_location('sbom_generate',here/'sbom_generate.py');sbom=importlib.util.module_from_spec(spec);spec.loader.exec_module(sbom)
 spec2=importlib.util.spec_from_file_location('measure',here/'measure.py');measure=importlib.util.module_from_spec(spec2);spec2.loader.exec_module(measure)
 class MetadataControls(unittest.TestCase):
+ def test_receipt_matches_calorie_rows(self):
+  rows=(here/'calories.tsv').read_text().splitlines();receipt=(here/'ACCEPTANCE-RUN.txt').read_text().splitlines()
+  self.assertIn('Measurement columns: '+rows[0],receipt)
+  self.assertEqual([line.removeprefix('Measurement row: ') for line in receipt if line.startswith('Measurement row: ')],rows[1:])
  def test_distribution_checksum(self):
   record=json.loads((here/'dataset.jsonld').read_text());dist=record['dcat:distribution'];checksum=dist['spdx:checksum']
   self.assertNotIn('spdx:checksum',record)

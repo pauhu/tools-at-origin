@@ -4,7 +4,7 @@ import hashlib, importlib.metadata, json, os, platform, re, shutil, subprocess, 
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
 OUT=ROOT/'ingredients'
-EXCLUDE={'ingredients/README.md','ingredients/calories.tsv','ingredients/manifest.json'}
+EXCLUDE={'ingredients/README.md','ingredients/calories.tsv','ingredients/manifest.json','ingredients/ACCEPTANCE-RUN.txt'}
 SCHEMA='2.0'
 DATASET='n4ze3m/tiny-voca'
 REVISION='63b6b89622e984d7c7a0799ca4b4c443dd5f48b2'
@@ -95,7 +95,9 @@ def measure(sample):
     (OUT/'README.md').write_text('\n'.join(readme)+'\n')
     rows=['schema\tfixture_id\toperation\tlicence\tsample_bytes\tfile_sha256\twall_ms\tpeak_rss_mib\tbytes_read\tbytes_written\tconnect_sendto_sendmsg_attempts\tmodel_tokens']+[run_fixture(name,test,sample) for name,test in fixtures()]
     (OUT/'calories.tsv').write_text('\n'.join(rows)+'\n')
-    outputs={n:hashlib.sha256((OUT/n).read_bytes()).hexdigest() for n in ('README.md','calories.tsv')}
+    receipt=['Fixture acquisition: separate, local previously fetched file.','Sample SHA-256: '+hashlib.sha256(Path(sample).read_bytes()).hexdigest(),'Command: python ingredients/measure.py --measure PATH','Measurement rc: 0','Measurement columns: '+rows[0]]+['Measurement row: '+row for row in rows[1:]]
+    (OUT/'ACCEPTANCE-RUN.txt').write_text('\n'.join(receipt)+'\n')
+    outputs={n:hashlib.sha256((OUT/n).read_bytes()).hexdigest() for n in ('README.md','calories.tsv','ACCEPTANCE-RUN.txt')}
     (OUT/'manifest.json').write_text(json.dumps({'schema':SCHEMA,'sources':files,'environment':env,'fixtures':fixtures(),'outputs':outputs},sort_keys=True,indent=2)+'\n');check()
 if __name__=='__main__':
     try:
