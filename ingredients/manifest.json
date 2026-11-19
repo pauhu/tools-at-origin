@@ -38,7 +38,7 @@
   ],
   "outputs": {
     "README.md": "43b828ea7347e3d58e82fc49c1fd5ceeab3502f6edd4f4ccc2b98b1f89a1adac",
-    "calories.tsv": "dcd675c31c5853e7db8948885ec5c03b5b647961c68a76611742993a4459ade3"
+    "calories.tsv": "063d2484adeb87272c59bce8a59c835c7a9981973d865382b2264dc71b2a352b"
   },
   "schema": "2.0",
   "sources": {
@@ -53,8 +53,9 @@
     "README.md": "485e3059da3af98f1d36d4dcc61ce0fa7dc3f511ec659dfadbc300add054b8f0",
     "calculation.py": "7cd1c40af1315c1f250f6b26f6524acf8e3067c047283826193f308e0e4d7a78",
     "codemeta.json": "a6858fed74a1fa6dc032e96873a2f97d0fb0802bea089c8f585f003ed640f719",
+    "ingredients/ACCEPTANCE-RUN.txt": "01709c443ab9f72c3325c46834430eb95ee7f1b316fea19adc9dcd6fe721c5a9",
     "ingredients/csv-metadata.json": "096540dccd7c865a06d885aa40228b8dcbc7a4e43466e73e1ac46dc0b4678595",
-    "ingredients/dataset.jsonld": "40ad2c88963af0d322940c5beeb24eee4a5045649d29ba557748531bf36ee0fa",
+    "ingredients/dataset.jsonld": "cb93694f110f7fb917ac5d5d8d8346a370fb78a13b4c2070a95abaa81274136b",
     "ingredients/dataset_fixture.py": "3bc7f20387ffbda192f6f43e8f0dec715caae2881feb64bb2dd674f238b0e390",
     "ingredients/measure.py": "0a48d9a71fbdba8be3648027b1f4881ad85748150045d5129036b0c1616d8441",
     "ingredients/sbom.cdx.json": "6a127c6977032570dab22e9eef25c2a8d3be2698c7a78d5350575ca21f565342",

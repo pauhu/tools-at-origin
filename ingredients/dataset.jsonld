@@ -21,8 +21,7 @@
     "@type": "dct:LinguisticSystem"
   },
   "schema:inLanguage": "en",
-  "schema:sha256": "89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce",
-  "dct:description": "Phoneme-level annotations for the tiny-voca synthetic speech corpus.",
+  "dct:description": "Complete tiny-voca synthetic speech corpus and phoneme annotations; the distribution described here is one measurement fixture file.",
   "dct:publisher": {
     "@id": "https://huggingface.co/n4ze3m",
     "@type": "foaf:Agent",
@@ -30,14 +29,15 @@
   },
   "dcat:distribution": {
     "@type": "dcat:Distribution",
-    "dct:description": "Revision-pinned annotations sample.",
+    "dct:description": "A single revision-pinned JSONL annotations file used as a measurement fixture, not the complete dataset.",
     "dcat:accessURL": {
-      "@id": "https://huggingface.co/datasets/n4ze3m/tiny-voca/tree/63b6b89622e984d7c7a0799ca4b4c443dd5f48b2",
+      "@id": "https://huggingface.co/datasets/n4ze3m/tiny-voca/raw/63b6b89622e984d7c7a0799ca4b4c443dd5f48b2/annotations/v3/raw/test.jsonl",
       "@type": "rdfs:Resource"
     },
     "dct:license": {
       "@id": "https://creativecommons.org/licenses/by/4.0/",
       "@type": "dct:LicenseDocument"
-    }
+    },
+    "schema:sha256": "89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce"
   }
 }
