@@ -41,6 +41,15 @@ def run_plan(envelope, secure_store, trust_root_path, trust_root_sha256, now=Non
         raise ValueError('unsupported operation')
     return calculation.calculate(operation['values'], operation['unit'])
 
+def run_plan_bytes(raw, secure_store, trust_root_path, trust_root_sha256, now=None):
+    if not isinstance(raw, bytes) or len(raw) > MAX_PLAN_BYTES:
+        raise ValueError('plan too large')
+    try:
+        envelope = json.loads(raw)
+    except (UnicodeDecodeError, json.JSONDecodeError, RecursionError):
+        raise ValueError('malformed plan') from None
+    return run_plan(envelope, secure_store, trust_root_path, trust_root_sha256, now=now)
+
 def outbound_approval(destination, payload):
     raise ValueError('outbound unavailable')
 

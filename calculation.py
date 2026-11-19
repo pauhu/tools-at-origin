@@ -6,6 +6,7 @@ import math
 
 VERSION = 'mean/1'
 MAX_VALUES = 10000
+MAX_INPUT_BYTES = 65536
 
 def calculate(values, unit):
     if not isinstance(values, list) or not 1 <= len(values) <= MAX_VALUES:
@@ -33,5 +34,8 @@ def rerun(receipt):
 
 if __name__ == '__main__':
     import sys
-    data = json.load(sys.stdin)
+    raw = sys.stdin.buffer.read(MAX_INPUT_BYTES + 1)
+    if len(raw) > MAX_INPUT_BYTES:
+        raise SystemExit('input too large')
+    data = json.loads(raw)
     print(json.dumps(calculate(data['values'], data['unit']), allow_nan=False))

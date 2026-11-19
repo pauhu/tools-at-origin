@@ -19,6 +19,12 @@ class TestCalculation(unittest.TestCase):
   self.assertFalse(calculation.rerun(record))
   record['receipt_sha256'] = '0' * 64
   self.assertFalse(calculation.rerun(record))
+ def test_input_size_boundary(self):
+  command=[sys.executable,str(Path(calculation.__file__))]
+  valid=b'{"values":[1],"unit":"m"}'
+  for raw,rc in ((valid+b' '*(calculation.MAX_INPUT_BYTES-len(valid)),0),(valid+b' '*(calculation.MAX_INPUT_BYTES+1-len(valid)),1)):
+   result=subprocess.run(command,input=raw,capture_output=True)
+   self.assertEqual(result.returncode,rc)
  def test_invalid_inputs(self):
   for values in ([], [float('nan')], [True], [1]*10001):
    with self.assertRaises(ValueError): calculation.calculate(values, 'm')

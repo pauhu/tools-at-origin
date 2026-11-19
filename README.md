@@ -11,3 +11,5 @@ The signed plan format is proposed. Plan verification accepts a local raw Ed2551
 | Outbound data | Unavailable |
 
 The hash-locked installation file targets CPython 3.10 on x86-64 Linux with glibc 2.34 or newer: `python3 -m pip install --require-hashes --only-binary=:all: -r requirements.lock`. Other platforms need independently verified distribution hashes. CI runs the offline tests on the stated target; hosted CI has not yet run for this candidate.
+
+Floating-point results may differ across Python versions or platforms; a repeatability receipt is not a cross-platform guarantee. The JSON stdin and byte-plan interfaces reject inputs over 65,536 bytes before parsing. The in-memory `run_plan` interface receives an already materialized object and cannot bound the caller’s prior allocation.

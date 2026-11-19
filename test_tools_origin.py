@@ -42,6 +42,19 @@ class Tests(unittest.TestCase):
             with self.assertRaises(ValueError):t.run_plan(env,self.store,self.root,self.pin,now=10)
             with patch.object(self.store,'get_install_id',return_value=b'other'):
                 with self.assertRaises(ValueError):t.run_plan(env,self.store,self.root,self.pin,now=2)
+    def test_malformed_root(self):
+        self.root.write_bytes(b'short')
+        with self.assertRaisesRegex(ValueError,'invalid trust root'):t.run_plan(self.envelope(),self.store,self.root,self.pin,now=2)
+    def test_malformed_and_oversized_plan_bytes(self):
+        for raw in (b'{',b'['*70000):
+            with self.assertRaises(ValueError):t.run_plan_bytes(raw,self.store,self.root,self.pin,now=2)
+        self.assertEqual(t.run_plan_bytes(t.canonical(self.envelope()),self.store,self.root,self.pin,now=2)['result'],3)
+    def test_operation_input_limit_signed(self):
+        self.plan['operation']['values']=[1]*10001
+        with self.assertRaises(ValueError):t.run_plan(self.envelope(),self.store,self.root,self.pin,now=2)
+    def test_malformed_envelopes(self):
+        for env in ({}, {'plan':{},'signature':'xx'}, {'plan':[],'signature':''}):
+            with self.assertRaises(ValueError):t.run_plan(env,self.store,self.root,self.pin,now=2)
     def test_outbound_refused(self):
         with self.assertRaisesRegex(ValueError,'outbound unavailable'):t.outbound_approval('https://example.org',b'x')
     def test_no_external_runner(self):
