@@ -2,23 +2,38 @@
 """Bounded local calculations and proposed authenticated plan execution."""
 import argparse
 import json
+import hashlib
+import os
+import stat
 import sys
 import calculation
 import key_binding
 
-# No production trust root has been supplied. Do not accept plans until provisioned.
-PINNED_PUBLIC_KEY = None
 MAX_PLAN_BYTES = 65536
 
 def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=False, allow_nan=False).encode()
 
-def run_plan(envelope, secure_store, now=None):
-    if PINNED_PUBLIC_KEY is None:
-        raise ValueError('plan signing key unavailable')
+def load_trust_root(path, expected_sha256):
+    if not isinstance(expected_sha256, str) or len(expected_sha256) != 64 or any(c not in '0123456789abcdef' for c in expected_sha256):
+        raise ValueError('trust root pin required')
+    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    try:
+        metadata = os.fstat(fd)
+        if not stat.S_ISREG(metadata.st_mode) or metadata.st_size != 32:
+            raise ValueError('invalid trust root')
+        public = os.read(fd, 33)
+        if len(public) != 32 or hashlib.sha256(public).hexdigest() != expected_sha256:
+            raise ValueError('trust root mismatch')
+        return public
+    finally:
+        os.close(fd)
+
+def run_plan(envelope, secure_store, trust_root_path, trust_root_sha256, now=None):
+    public_key = load_trust_root(trust_root_path, trust_root_sha256)
     if len(canonical(envelope)) > MAX_PLAN_BYTES:
         raise ValueError('plan too large')
-    plan = key_binding.verify(envelope, PINNED_PUBLIC_KEY, secure_store, now=now)
+    plan = key_binding.verify(envelope, public_key, secure_store, now=now)
     if set(plan) != {'key_ref', 'device_ref', 'iat', 'exp', 'plan_id', 'operation'}:
         raise ValueError('plan refused')
     operation = plan['operation']
