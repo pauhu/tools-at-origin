@@ -1,11 +1,43 @@
 {
-  "@context": {"dcat":"http://www.w3.org/ns/dcat#", "dct":"http://purl.org/dc/terms/", "schema":"https://schema.org/"},
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
   "@type": "dcat:Dataset",
   "dct:title": "tiny-voca annotations",
   "dct:identifier": "n4ze3m/tiny-voca@63b6b89622e984d7c7a0799ca4b4c443dd5f48b2",
-  "dct:license": {"@id":"https://spdx.org/licenses/CC-BY-4.0.html"},
-  "dcat:landingPage": {"@id":"https://huggingface.co/datasets/n4ze3m/tiny-voca"},
-  "dct:language": {"@id":"http://publications.europa.eu/resource/authority/language/ENG"},
+  "dct:license": {
+    "@id": "https://spdx.org/licenses/CC-BY-4.0.html"
+  },
+  "dcat:landingPage": {
+    "@id": "https://huggingface.co/datasets/n4ze3m/tiny-voca",
+    "@type": "foaf:Document"
+  },
+  "dct:language": {
+    "@id": "http://publications.europa.eu/resource/authority/language/ENG",
+    "@type": "dct:LinguisticSystem"
+  },
   "schema:inLanguage": "en",
-  "schema:sha256": "89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce"
+  "schema:sha256": "89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce",
+  "dct:description": "Phoneme-level annotations for the tiny-voca synthetic speech corpus.",
+  "dct:publisher": {
+    "@id": "https://huggingface.co/n4ze3m",
+    "@type": "foaf:Agent",
+    "foaf:name": "Muhammed Nazeem"
+  },
+  "dcat:distribution": {
+    "@type": "dcat:Distribution",
+    "dct:description": "Revision-pinned annotations sample.",
+    "dcat:accessURL": {
+      "@id": "https://huggingface.co/datasets/n4ze3m/tiny-voca/tree/63b6b89622e984d7c7a0799ca4b4c443dd5f48b2",
+      "@type": "rdfs:Resource"
+    },
+    "dct:license": {
+      "@id": "https://creativecommons.org/licenses/by/4.0/",
+      "@type": "dct:LicenseDocument"
+    }
+  }
 }

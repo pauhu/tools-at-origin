@@ -29,8 +29,12 @@ def read_data(mode):
         data=response.read(500001)
     return verify(data),None
 
-def run(mode):
-    data,fetched=read_data(mode)
+def run(mode, sample=None):
+    if mode == 'mean':
+        if sample is None: raise ValueError('sample_missing')
+        data, fetched = verify(Path(sample).read_bytes()), None
+    else:
+        data, fetched = read_data(mode)
     if mode=='fetch':return {'sha256':FILE_SHA256,'sample_bytes':SIZE}
     if mode=='cite':
         import origin_cli
@@ -43,7 +47,11 @@ def run(mode):
     raise ValueError('fixture_operation')
 if __name__=='__main__':
     try:
-        if len(sys.argv)!=2 or sys.argv[1] not in ('fetch','cite','mean'):raise ValueError('fixture_operation')
-        print(json.dumps(run(sys.argv[1]),allow_nan=False))
+        if len(sys.argv)!=3 or sys.argv[1] not in ('mean','fetch-sample'):raise ValueError('fixture_operation')
+        if sys.argv[1]=='fetch-sample':
+            data,_=read_data('mean')
+            with Path(sys.argv[2]).open('xb') as out:out.write(data)
+            print('FIXTURE=MET')
+        else:print(json.dumps(run(sys.argv[1],sys.argv[2]),allow_nan=False))
     except Exception as e:
         print('DATASET_FIXTURE=MISS reason='+type(e).__name__,file=sys.stderr);sys.exit(1)

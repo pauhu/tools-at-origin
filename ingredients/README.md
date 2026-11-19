@@ -1,8 +1,8 @@
 # Ingredients: measured resources
 
-Dataset: n4ze3m/tiny-voca at revision 63b6b89622e984d7c7a0799ca4b4c443dd5f48b2; licence CC-BY-4.0; file SHA-256 89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce; sample size 383110 bytes. Source and attribution: https://huggingface.co/datasets/n4ze3m/tiny-voca. The sample is fetched at measurement time and not committed.
+Dataset: n4ze3m/tiny-voca at revision 63b6b89622e984d7c7a0799ca4b4c443dd5f48b2; licence CC-BY-4.0; file SHA-256 89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce; sample size 383110 bytes. Source and attribution: https://huggingface.co/datasets/n4ze3m/tiny-voca. Creator: Muhammed Nazeem. Licence: https://creativecommons.org/licenses/by/4.0/. The sample is unmodified; this measurement reads durations from its first ten records. Fetch and verify the sample separately; it is not committed.
 
-Fixture-run measurements include Python startup, tracing and test framework overhead. They do not predict production costs or provider billing.
+The operation measurement starts a fresh Python interpreter and includes interpreter startup, loading and reading the local sample, calculation and output, plus tracing overhead. The separate fixture fetch is not counted. Network syscall attempts must be zero. To reproduce, run python ingredients/dataset_fixture.py fetch-sample PATH once, then run python ingredients/measure.py --measure PATH in the documented environment; timings will vary. --check verifies integrity and environment only, not measurement provenance. SBOM hashes are lockfile distribution hashes, not verified installed-artifact hashes.
 
 Repository licence: Apache-2.0.
 

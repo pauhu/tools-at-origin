@@ -1,8 +1,67 @@
 {
- "@context":"http://www.w3.org/ns/csvw",
- "url":"calories.tsv",
- "dialect":{"delimiter":"\t","header":true},
- "tableSchema":{"columns":[
-  {"name":"schema","datatype":"string"},{"name":"fixture_id","datatype":"string"},{"name":"operation","datatype":"string"},{"name":"licence","datatype":"string"},{"name":"sample_bytes","datatype":"integer"},{"name":"file_sha256","datatype":"string"},{"name":"wall_ms","datatype":"decimal","dc:description":"Elapsed milliseconds"},{"name":"peak_rss_mib","datatype":"decimal","dc:description":"Peak resident memory in mebibytes"},{"name":"bytes_read","datatype":"integer"},{"name":"bytes_written","datatype":"integer"},{"name":"network_calls","datatype":"integer"},{"name":"model_tokens","datatype":"integer"}
- ]}
+  "@context": "http://www.w3.org/ns/csvw",
+  "url": "calories.tsv",
+  "dialect": {
+    "delimiter": "\t",
+    "header": true
+  },
+  "tableSchema": {
+    "columns": [
+      {
+        "name": "schema",
+        "datatype": "string"
+      },
+      {
+        "name": "fixture_id",
+        "datatype": "string"
+      },
+      {
+        "name": "operation",
+        "datatype": "string"
+      },
+      {
+        "name": "licence",
+        "datatype": "string"
+      },
+      {
+        "name": "sample_bytes",
+        "datatype": "integer",
+        "dc:description": "Size in bytes of verified fixture file; fetch is outside measurement."
+      },
+      {
+        "name": "file_sha256",
+        "datatype": "string"
+      },
+      {
+        "name": "wall_ms",
+        "datatype": "decimal",
+        "dc:description": "Elapsed milliseconds including Python startup and tracing."
+      },
+      {
+        "name": "peak_rss_mib",
+        "datatype": "decimal",
+        "dc:description": "Peak resident memory in MiB of the traced process."
+      },
+      {
+        "name": "bytes_read",
+        "datatype": "integer",
+        "dc:description": "Successful read syscall return bytes across the traced process, including startup and local fixture reads."
+      },
+      {
+        "name": "bytes_written",
+        "datatype": "integer",
+        "dc:description": "Successful write syscall return bytes across the traced process, including output."
+      },
+      {
+        "name": "network_syscall_attempts",
+        "datatype": "integer",
+        "dc:description": "Attempts of connect, sendto and sendmsg including failures; must be zero."
+      },
+      {
+        "name": "model_tokens",
+        "datatype": "integer",
+        "dc:description": "Zero: this operation does not invoke a model."
+      }
+    ]
+  }
 }
