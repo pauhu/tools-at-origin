@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it."
+title: "tools-at-origin"
+version: "0.1.2"
+authors:
+  - name: "Pauhu Ltd"
+    type: entity
+license: Apache-2.0
+repository-code: "https://github.com/pauhu/tools-at-origin"

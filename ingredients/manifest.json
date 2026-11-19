@@ -1,0 +1,73 @@
+{
+  "environment": {
+    "dependencies": [
+      {
+        "licence": "MIT-0",
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "licence": "Apache-2.0 OR BSD-3-Clause",
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "licence": "BSD-3-Clause",
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "licence": "PSF-2.0",
+        "name": "typing-extensions",
+        "version": "4.16.0"
+      }
+    ],
+    "implementation": "CPython",
+    "machine": "x86_64",
+    "python": "3.12.15",
+    "release": "5.15.0-168-generic",
+    "strace": "strace -- version 5.16",
+    "system": "Linux",
+    "time_sha256": "7310b9b4c51a8f4d26c1af0da250f03a49ec8a8141033123e79196ad18f6c81b"
+  },
+  "fixtures": [
+    [
+      "n4ze3m/tiny-voca@63b6b89622e984d7c7a0799ca4b4c443dd5f48b2",
+      "mean"
+    ]
+  ],
+  "outputs": {
+    "README.md": "425ce21aaffa1f82c8963e8923c3cd5015001e1843d6a13cd1fc94b2f832ba10",
+    "calories.tsv": "248aa5ea5aa308a6145dbf63205d51ed2bd35cc74fab3ef127e3734075b45028"
+  },
+  "schema": "2.0",
+  "sources": {
+    ".github/workflows/scan.yml": "2b54571e5d146e98afc93779cc50ac84f046d6824a0e4aa7f8dc8c4efd286a8e",
+    ".github/workflows/test.yml": "f0d906ebead5a2f15404971c231844e8e4f6996dae33afa06e6e6a0a0635f6d8",
+    "CHANGELOG.md": "f3e127d2afb59090aff73adb667bb8a20ed4d663567bd272d85f2676840bed8b",
+    "CITATION.cff": "3233b7d8dfb8dadbc809a9b868f3336b464e76f697f6c8f0ac84ac08f078f9b1",
+    "CONTRACT-key-binding.md": "6a5bbcceb3a37f04c4411a42e84f340767abd8f94f803f48140a8f4cd8f9cf45",
+    "LICENSE": "088e84f354b3f0f60a4b76c9f6382c752b107ef6b7e1e4a3827c012413db3475",
+    "NOTICE": "a96df25c7963e2c5068167bc548ac3f2f3a17d25fff85cab669b15989d74bb9a",
+    "PINS.txt": "e8c1051f097cd20b8140d95f37f306433641c804922d12157ddc65bf161272cf",
+    "README.md": "485e3059da3af98f1d36d4dcc61ce0fa7dc3f511ec659dfadbc300add054b8f0",
+    "calculation.py": "7cd1c40af1315c1f250f6b26f6524acf8e3067c047283826193f308e0e4d7a78",
+    "codemeta.json": "a6858fed74a1fa6dc032e96873a2f97d0fb0802bea089c8f585f003ed640f719",
+    "ingredients/csv-metadata.json": "1bca9ada1fa7f5572cbdc6037ac8c1393874e26f5962353a83d6d6d9aa11f9df",
+    "ingredients/dataset.jsonld": "ecf66216607afa3acdf91098ffdb79d3dc65bca87aec4ee33df63610766cefa3",
+    "ingredients/dataset_fixture.py": "d5acc09484ea2f2531d2208749edf6e299ea8fb38d2d703b8a958dbbc57fac75",
+    "ingredients/measure.py": "9004d05cbe742b45df62c13c258b0e97961cee24fe62a43f5ba851ad377e58e0",
+    "ingredients/sbom.cdx.json": "6a127c6977032570dab22e9eef25c2a8d3be2698c7a78d5350575ca21f565342",
+    "ingredients/sbom_generate.py": "39fdb2b8a6d1102015bc59b8f225f792c9ce7d3a5dfb20728f81525138516df2",
+    "ingredients/test_measure.py": "8679db176fef769614f507f4e6c038a3135655b245dcc1f6e9e16e6a398ccbc4",
+    "ingredients/test_metadata.py": "211b2a89079af375d044d77e5832722e3533d5240cdbeb723ea57bb0a5ba9e1c",
+    "key_binding.py": "ecf18ce2639d63a42d585c6bd60d2857a60159e485470755c3b63a2401ef1b24",
+    "redteam-local.sh": "c4bda87d60012b1846fd62f92f18d9c33c89e75de62c3ad0655fbedcfd587c74",
+    "requirements.lock": "50b02d9d8507bba7d056e9afeccbf61aed959f3b6281ea7768c3ca71d11e40b8",
+    "requirements.txt": "674264b83bb5f694effedf6969707fb57c950152acbcfb6c7680460384c60a40",
+    "test_calculation.py": "4c470f47b69379fdec18091399cb5f491ccd93aa574d59f8f2d5e72e7db1f7e9",
+    "test_key_binding.py": "acb1fce8b95afbb8a07b272ec793a65fe423f80bac4dd6578b9b0322be02f5ef",
+    "test_tools_origin.py": "d9ecc27979e3fed7e7bd5ea5755af319282b37df85b8712e274e6fbc32237693",
+    "tools_origin.py": "67cda430937f7aa13adca4ace538b8219c9039e0b99a63189d515d62c9c0b9db"
+  }
+}

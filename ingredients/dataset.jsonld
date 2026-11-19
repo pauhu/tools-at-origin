@@ -1,0 +1,11 @@
+{
+  "@context": {"dcat":"http://www.w3.org/ns/dcat#", "dct":"http://purl.org/dc/terms/", "schema":"https://schema.org/"},
+  "@type": "dcat:Dataset",
+  "dct:title": "tiny-voca annotations",
+  "dct:identifier": "n4ze3m/tiny-voca@63b6b89622e984d7c7a0799ca4b4c443dd5f48b2",
+  "dct:license": {"@id":"https://spdx.org/licenses/CC-BY-4.0.html"},
+  "dcat:landingPage": {"@id":"https://huggingface.co/datasets/n4ze3m/tiny-voca"},
+  "dct:language": {"@id":"http://publications.europa.eu/resource/authority/language/ENG"},
+  "schema:inLanguage": "en",
+  "schema:sha256": "89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce"
+}

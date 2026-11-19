@@ -1,0 +1,8 @@
+{
+ "@context":"http://www.w3.org/ns/csvw",
+ "url":"calories.tsv",
+ "dialect":{"delimiter":"\t","header":true},
+ "tableSchema":{"columns":[
+  {"name":"schema","datatype":"string"},{"name":"fixture_id","datatype":"string"},{"name":"operation","datatype":"string"},{"name":"licence","datatype":"string"},{"name":"sample_bytes","datatype":"integer"},{"name":"file_sha256","datatype":"string"},{"name":"wall_ms","datatype":"decimal","dc:description":"Elapsed milliseconds"},{"name":"peak_rss_mib","datatype":"decimal","dc:description":"Peak resident memory in mebibytes"},{"name":"bytes_read","datatype":"integer"},{"name":"bytes_written","datatype":"integer"},{"name":"network_calls","datatype":"integer"},{"name":"model_tokens","datatype":"integer"}
+ ]}
+}
