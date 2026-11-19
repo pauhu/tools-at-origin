@@ -13,6 +13,6 @@ def build(raw):
   if name in seen or name not in LICENCES:raise ValueError('unknown_or_duplicate_dependency')
   seen.add(name);components.append({'type':'library','name':name,'version':version,'purl':'pkg:pypi/'+name+'@'+version,'hashes':[{'alg':'SHA-256','content':digest}],'licenses':[{'expression':LICENCES[name]}]})
  if seen!=set(LICENCES):raise ValueError('incomplete_lock')
- return {'bomFormat':'CycloneDX','specVersion':'1.7','version':1,'metadata':{'component':{'type':'application','name':'tools-at-origin','version':'0.1.2'},'properties':[{'name':'lock-sha256','value':hashlib.sha256(raw).hexdigest()},{'name':'generator','value':'sbom_generate.py/1'}]},'components':components}
+ return {'bomFormat':'CycloneDX','specVersion':'1.7','version':1,'metadata':{'component':{'type':'application','name':'tools-at-origin','version':'0.1.3'},'properties':[{'name':'lock-sha256','value':hashlib.sha256(raw).hexdigest()},{'name':'generator','value':'sbom_generate.py/1'}]},'components':components}
 if __name__=='__main__':
  raw=(ROOT/'requirements.lock').read_bytes();(ROOT/'ingredients/sbom.cdx.json').write_text(json.dumps(build(raw),sort_keys=True,indent=2)+'\n')

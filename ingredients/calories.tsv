@@ -1,2 +1,2 @@
 schema	fixture_id	operation	licence	sample_bytes	file_sha256	wall_ms	peak_rss_mib	bytes_read	bytes_written	connect_sendto_sendmsg_attempts	model_tokens
-2.0	n4ze3m/tiny-voca@63b6b89622e984d7c7a0799ca4b4c443dd5f48b2	mean	CC-BY-4.0	383110	89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce	75.314	19.062	2008697	5142	0	0
+2.0	n4ze3m/tiny-voca@63b6b89622e984d7c7a0799ca4b4c443dd5f48b2	mean	CC-BY-4.0	383110	89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce	78.752	19.207	2008699	5142	0	0

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- CI secret scan: ignore 3 historical public file digests by exact fingerprint.
+
 ## 0.1.1
 
 - Quote the dependency-install command so the test workflow parses.

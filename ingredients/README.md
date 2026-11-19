@@ -25,4 +25,4 @@ Repository licence: Apache-2.0.
 ## Bundled data
 
 - `PINS.txt`; SHA-256 `e8c1051f097cd20b8140d95f37f306433641c804922d12157ddc65bf161272cf`; origin: tracked repository file (original publisher not established).
-- `codemeta.json`; SHA-256 `a6858fed74a1fa6dc032e96873a2f97d0fb0802bea089c8f585f003ed640f719`; origin: tracked repository file (original publisher not established).
+- `codemeta.json`; SHA-256 `388bf04043190f40a396a0be1118fa02e11c7ebc94cc64f88545fcbd6fc95efc`; origin: tracked repository file (original publisher not established).
