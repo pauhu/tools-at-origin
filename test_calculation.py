@@ -15,6 +15,10 @@ class TestCalculation(unittest.TestCase):
   self.assertTrue(calculation.rerun(record))
   record['result'] = 4
   self.assertFalse(calculation.rerun(record))
+  record['result'] = 999; record['absolute_tolerance'] = 1000.0
+  self.assertFalse(calculation.rerun(record))
+  record['receipt_sha256'] = '0' * 64
+  self.assertFalse(calculation.rerun(record))
  def test_invalid_inputs(self):
   for values in ([], [float('nan')], [True], [1]*10001):
    with self.assertRaises(ValueError): calculation.calculate(values, 'm')

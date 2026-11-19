@@ -15,13 +15,21 @@ def calculate(values, unit):
     if any(isinstance(v, bool) or not isinstance(v, (float, int)) or not math.isfinite(v) for v in values):
         raise ValueError('finite numbers required')
     snapshot = json.dumps({'values': values, 'unit': unit}, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()
-    return {'calculation': VERSION, 'input': json.loads(snapshot), 'input_sha256': hashlib.sha256(snapshot).hexdigest(), 'result': math.fsum(values) / len(values), 'unit': unit, 'absolute_tolerance': 0.0}
+    receipt = {'calculation': VERSION, 'input': json.loads(snapshot), 'input_sha256': hashlib.sha256(snapshot).hexdigest(), 'result': math.fsum(values) / len(values), 'unit': unit, 'absolute_tolerance': 0.0}
+    receipt['receipt_sha256'] = hashlib.sha256(json.dumps(receipt, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest()
+    return receipt
 
 def rerun(receipt):
-    fresh = calculate(receipt['input']['values'], receipt['input']['unit'])
-    if receipt['calculation'] != VERSION or receipt['input_sha256'] != fresh['input_sha256']:
+    try:
+        if not isinstance(receipt, dict) or set(receipt) != {'calculation', 'input', 'input_sha256', 'result', 'unit', 'absolute_tolerance', 'receipt_sha256'}:
+            return False
+        if type(receipt['absolute_tolerance']) is not float or receipt['absolute_tolerance'] != 0.0:
+            return False
+        fresh = calculate(receipt['input']['values'], receipt['input']['unit'])
+        # Recompute every field: a public digest is not an authentication signature.
+        return receipt == fresh
+    except (ValueError, TypeError, KeyError, OverflowError):
         return False
-    return math.isclose(fresh['result'], receipt['result'], rel_tol=0.0, abs_tol=receipt['absolute_tolerance'])
 
 if __name__ == '__main__':
     import sys
