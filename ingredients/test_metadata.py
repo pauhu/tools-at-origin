@@ -6,6 +6,12 @@ here=Path(__file__).parent
 spec=importlib.util.spec_from_file_location('sbom_generate',here/'sbom_generate.py');sbom=importlib.util.module_from_spec(spec);spec.loader.exec_module(sbom)
 spec2=importlib.util.spec_from_file_location('measure',here/'measure.py');measure=importlib.util.module_from_spec(spec2);spec2.loader.exec_module(measure)
 class MetadataControls(unittest.TestCase):
+ def test_distribution_checksum(self):
+  record=json.loads((here/'dataset.jsonld').read_text());dist=record['dcat:distribution'];checksum=dist['spdx:checksum']
+  self.assertNotIn('spdx:checksum',record)
+  self.assertEqual(checksum['spdx:algorithm']['@id'],'http://spdx.org/rdf/terms#checksumAlgorithm_sha256')
+  self.assertEqual(checksum['spdx:checksumValue']['@value'],measure.DATASET_SHA256)
+  self.assertTrue(dist['dcat:accessURL']['@id'].endswith('/'+measure.REVISION+'/annotations/v3/raw/test.jsonl'))
  def test_lock_and_invalid(self):
   raw=(here.parent/'requirements.lock').read_bytes();self.assertEqual(len(sbom.build(raw)['components']),4)
   with self.assertRaises(ValueError):sbom.build(raw+b'unknown==1 --hash=sha256:'+b'0'*64+b'\n')

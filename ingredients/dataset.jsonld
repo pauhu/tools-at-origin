@@ -4,7 +4,9 @@
     "dct": "http://purl.org/dc/terms/",
     "schema": "https://schema.org/",
     "foaf": "http://xmlns.com/foaf/0.1/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@type": "dcat:Dataset",
   "dct:title": "tiny-voca annotations",
@@ -38,6 +40,16 @@
       "@id": "https://creativecommons.org/licenses/by/4.0/",
       "@type": "dct:LicenseDocument"
     },
-    "schema:sha256": "89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce"
+    "schema:sha256": "89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce",
+    "spdx:checksum": {
+      "@type": "spdx:Checksum",
+      "spdx:algorithm": {
+        "@id": "http://spdx.org/rdf/terms#checksumAlgorithm_sha256"
+      },
+      "spdx:checksumValue": {
+        "@value": "89874e24611017ad18e24836fc018272d4e5723218f2dcbba3ca3619eaa145ce",
+        "@type": "xsd:hexBinary"
+      }
+    }
   }
 }
