@@ -40,7 +40,7 @@
       {
         "name": "peak_rss_mib",
         "datatype": "decimal",
-        "dc:description": "Peak resident memory in MiB of the traced process."
+        "dc:description": "Peak resident memory in MiB of the Python fixture and its children, measured by time directly."
       },
       {
         "name": "bytes_read",
@@ -53,9 +53,9 @@
         "dc:description": "Successful write syscall return bytes across the traced process, including output."
       },
       {
-        "name": "network_syscall_attempts",
+        "name": "connect_sendto_sendmsg_attempts",
         "datatype": "integer",
-        "dc:description": "Attempts of connect, sendto and sendmsg including failures; must be zero."
+        "dc:description": "Attempts of connect, sendto and sendmsg including failures; must be zero. Other networking calls and socket writes are not counted."
       },
       {
         "name": "model_tokens",

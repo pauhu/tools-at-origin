@@ -25,6 +25,25 @@ class Controls(unittest.TestCase):
   sample=os.environ.get('INGREDIENTS_SAMPLE')
   if not sample:self.skipTest('provide previously fetched pinned sample')
   self.assertEqual(len(dataset_fixture.verify(Path(sample).read_bytes())),dataset_fixture.SIZE)
+ def test_real_network_subprocess(self):
+  import subprocess, sys, tempfile
+  with tempfile.TemporaryDirectory() as td:
+   trace=Path(td)/'trace'
+   code='import socket; s=socket.socket(); s.settimeout(1); s.connect_ex(("127.0.0.1", 1))'
+   subprocess.run(['strace','-f','-qq','-e','trace=read,write,connect,sendto,sendmsg','-o',str(trace),sys.executable,'-c',code],check=True)
+   self.assertGreater(m.parse_trace(trace.read_text())[2],0)
+ def test_fixture_measurement_and_independent_rss(self):
+  import os, subprocess, sys, tempfile
+  sample=os.environ.get('INGREDIENTS_SAMPLE')
+  if not sample:self.skipTest('provide previously fetched pinned sample')
+  row=m.run_fixture(m.DATASET_ID,'mean',sample).split('\t')
+  self.assertEqual(int(row[10]),0)
+  with tempfile.TemporaryDirectory() as td:
+   rss=Path(td)/'rss'
+   subprocess.run(['/usr/bin/time','-f','%M','-o',str(rss),sys.executable,str(m.OUT/'dataset_fixture.py'),'mean',sample],check=True,stdout=subprocess.DEVNULL)
+   independent=int(rss.read_text())/1024
+   self.assertGreater(float(row[7]),independent*0.5)
+   self.assertLess(float(row[7]),independent*2)
  def test_missing_instrumentation(self):
   with self.assertRaisesRegex(ValueError,'instrumentation_missing'):m.run_fixture('fixture','x',exe='/path/not/present')
  def test_fixture_failure(self):

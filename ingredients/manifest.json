@@ -37,8 +37,8 @@
     ]
   ],
   "outputs": {
-    "README.md": "ca7bc27a0a7fb4b3a4678e3b2df023f365a39ead43b7e51664a32c23a7b71ac2",
-    "calories.tsv": "89d94cec4558c5db7665dfe1692cc91d75f01c542bf8ad6a021ac08888f0d345"
+    "README.md": "43b828ea7347e3d58e82fc49c1fd5ceeab3502f6edd4f4ccc2b98b1f89a1adac",
+    "calories.tsv": "dcd675c31c5853e7db8948885ec5c03b5b647961c68a76611742993a4459ade3"
   },
   "schema": "2.0",
   "sources": {
@@ -53,13 +53,13 @@
     "README.md": "485e3059da3af98f1d36d4dcc61ce0fa7dc3f511ec659dfadbc300add054b8f0",
     "calculation.py": "7cd1c40af1315c1f250f6b26f6524acf8e3067c047283826193f308e0e4d7a78",
     "codemeta.json": "a6858fed74a1fa6dc032e96873a2f97d0fb0802bea089c8f585f003ed640f719",
-    "ingredients/csv-metadata.json": "afb24b9ee9880b8facab308b13886441c797ef583d2b7ecf5ec026d1606acfcf",
+    "ingredients/csv-metadata.json": "096540dccd7c865a06d885aa40228b8dcbc7a4e43466e73e1ac46dc0b4678595",
     "ingredients/dataset.jsonld": "40ad2c88963af0d322940c5beeb24eee4a5045649d29ba557748531bf36ee0fa",
     "ingredients/dataset_fixture.py": "3bc7f20387ffbda192f6f43e8f0dec715caae2881feb64bb2dd674f238b0e390",
-    "ingredients/measure.py": "5710a68bd7b5038a103eba2ffd9d49631ae9e66b9399bd79eeac83f2fd01af97",
+    "ingredients/measure.py": "0a48d9a71fbdba8be3648027b1f4881ad85748150045d5129036b0c1616d8441",
     "ingredients/sbom.cdx.json": "6a127c6977032570dab22e9eef25c2a8d3be2698c7a78d5350575ca21f565342",
     "ingredients/sbom_generate.py": "39fdb2b8a6d1102015bc59b8f225f792c9ce7d3a5dfb20728f81525138516df2",
-    "ingredients/test_measure.py": "1aadc9aff9ee82d74eb7ba9b4b0e6378c6f2b5fdb4a17b394698b8639fd6723d",
+    "ingredients/test_measure.py": "6577db0dfdd041e4ef7a33d832c26ce942071d029329e810671c3825e4dcb609",
     "ingredients/test_metadata.py": "211b2a89079af375d044d77e5832722e3533d5240cdbeb723ea57bb0a5ba9e1c",
     "key_binding.py": "ecf18ce2639d63a42d585c6bd60d2857a60159e485470755c3b63a2401ef1b24",
     "redteam-local.sh": "c4bda87d60012b1846fd62f92f18d9c33c89e75de62c3ad0655fbedcfd587c74",
