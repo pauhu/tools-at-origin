@@ -42,6 +42,12 @@ class Tests(unittest.TestCase):
             with self.assertRaises(ValueError):t.run_plan(env,self.store,self.root,self.pin,now=10)
             with patch.object(self.store,'get_install_id',return_value=b'other'):
                 with self.assertRaises(ValueError):t.run_plan(env,self.store,self.root,self.pin,now=2)
+    def test_valid_but_wrong_trust_root(self):
+        wrong = Ed25519PrivateKey.generate().public_key().public_bytes(serialization.Encoding.Raw, serialization.PublicFormat.Raw)
+        self.root.write_bytes(wrong)
+        wrong_pin = hashlib.sha256(wrong).hexdigest()
+        with self.assertRaises(ValueError):
+            t.run_plan(self.envelope(),self.store,self.root,wrong_pin,now=2)
     def test_malformed_root(self):
         self.root.write_bytes(b'short')
         with self.assertRaisesRegex(ValueError,'invalid trust root'):t.run_plan(self.envelope(),self.store,self.root,self.pin,now=2)
