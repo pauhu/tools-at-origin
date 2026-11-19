@@ -1,0 +1,6 @@
+Tool image digests resolved as Linux amd64 from registry manifest inspection:
+zricethezav/gitleaks:latest Docker Hub sha256:b109bc5f8f76a38196a3e413704fc5b9e3c32360bce4e4b603bd6f45b3721dbb
+semgrep/semgrep:latest Docker Hub sha256:f83a64e8a7d985eaa51ee3978c9c882be946964c68633fba5d2817cf297a3912
+ghcr.io/google/osv-scanner:v2.7.1 GitHub Container Registry sha256:bc10cae80da100d32572aea48cfc48e592be9adc4a8b0820fd5d2c2db71f9446
+OSV-Scanner documented exit codes: 0 packages found and no vulnerabilities; 1 findings; 128 no packages found. A nonzero result fails this workflow. Source: https://google.github.io/osv-scanner/output/#return-codes
+Runtime dependencies: cryptography 3.4.8 (Apache-2.0 OR BSD-3-Clause); cffi 2.1.1 (MIT); pycparser 3.11 (BSD-3-Clause). System Python and its cryptographic backend are external prerequisites.
