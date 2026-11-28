@@ -1,4 +1,4 @@
-# Pauhu client
+# Pauhu Calculation Plans
 
 Client for running signed, bounded calculation plans on your device; the plans come from the Pauhu demo backend.
 
@@ -8,3 +8,5 @@ Client for running signed, bounded calculation plans on your device; the plans c
 - MCP clients: [server.json](server.json) (remote, header `Authorization: Bearer <key>`).
 
 Status: proposed. Licence: Apache-2.0.
+
+Copyright © 2026 Pauhu Ltd. Written and maintained by Pauhu Ltd.
