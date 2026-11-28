@@ -4,7 +4,7 @@ Instructions for AI agents, coding assistants and automated readers of this repo
 
 ## What This Repository Is
 
-Tool calling for AI models: your model calls signed, bounded tools that run on your device; the tool plans come from the Pauhu demo backend. It contains instructions only. Nothing here produces a result on its own.
+Tool calling for AI models: your model calls tools that run on your device, following tool plans from the Pauhu demo backend. Signing and limits on each plan are proposed and described in AGENTS.md as they are built. It contains instructions only. Nothing here produces a result on its own.
 
 ## Access
 
@@ -22,6 +22,7 @@ Tool calling for AI models: your model calls signed, bounded tools that run on y
 
 - Guess, probe or reconstruct the backend, or copy its output into a substitute.
 - Commit keys, tokens or personal data.
+- Obtain a developer key on your own, or ask a person to paste or tell you their key. The person sets the key in their own environment.
 
 ## Security
 
