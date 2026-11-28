@@ -4,7 +4,7 @@ Instructions for AI agents, coding assistants and automated readers of this repo
 
 ## What This Repository Is
 
-Client for running signed, bounded calculation plans on your device; the plans come from the Pauhu demo backend. It contains instructions only. Nothing here produces a result on its own.
+Tool calling for AI models: your model calls signed, bounded tools that run on your device; the tool plans come from the Pauhu demo backend. It contains instructions only. Nothing here produces a result on its own.
 
 ## Access
 

@@ -1,6 +1,6 @@
-# Pauhu Calculation Plans
+# Pauhu Tool Calling
 
-Client for running signed, bounded calculation plans on your device; the plans come from the Pauhu demo backend.
+Tool calling for AI models: your model calls signed, bounded tools that run on your device; the tool plans come from the Pauhu demo backend.
 
 **You need a free Pauhu developer key.** Get a free Pauhu developer key at https://pauhu.dev/developer-terms/ (valid 90 days, 50 requests a day reset 00:00 UTC, at most 5 a minute). Requests go to the Pauhu demo backend; without a key it returns no result.
 
